@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WorkoutMenuController">
+   <children>
+      <ImageView fitHeight="563.0" fitWidth="908.0" layoutX="-1.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: pink;">
+         <image>
+            <Image url="@../rscs/mainmenuwallpaper.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="569.0" layoutX="-4.0" layoutY="-9.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="908.0" />
+      <Accordion layoutX="25.0" layoutY="146.0" />
+      <Group layoutX="800.0" layoutY="525.0">
+         <children>
+            <Rectangle fx:id="createButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
+            <Text fx:id="createText" layoutX="9.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Plan">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="600.0" layoutY="525.0">
+         <children>
+            <Rectangle fx:id="deleteButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
+            <Text fx:id="deleteText" layoutX="9.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Plan">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="400.0" layoutY="525.0">
+         <children>
+            <Rectangle fx:id="viewButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
+            <Text fx:id="viewText" layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Plan" onMouseClicked="#onViewButton">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="200.0" layoutY="525.0">
+         <children>
+            <Rectangle fx:id="editButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
+            <Text fx:id="editText" layoutX="17.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Plan">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="11.0" layoutY="525.0">
+         <children>
+            <Rectangle fx:id="backButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
+            <Text fx:id="backText" layoutX="29.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <TableView fx:id="planTableView" layoutX="11.0" layoutY="10.0" prefHeight="507.0" prefWidth="875.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="249.5999698638916" text="Name" />
+            <TableColumn fx:id="skillColumn" prefWidth="88.00003051757812" text="Skill Level" />
+            <TableColumn fx:id="focusColumn" prefWidth="147.20001220703125" text="Focus" />
+            <TableColumn fx:id="lengthColumn" prefWidth="70.40005493164062" text="Length" />
+            <TableColumn fx:id="toolsColumn" prefWidth="320.800048828125" text="Tools required" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

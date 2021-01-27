@@ -7,13 +7,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.Muscle;
+import model.Plan;
 import model.User;
+import model.Workout;
+import repos.PlanRepository;
+import repos.Repositories;
+import repos.UserRepository;
+import repos.WorkoutRepository;
 import util.FXMLUtil;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Controller {
+
+    UserRepository userRepository = Repositories.getUserRepository();
+    PlanRepository planRepository = Repositories.getPlanRepository();
+    WorkoutRepository workoutRepository = Repositories.getWorkoutRepository();
 
     protected void redirect(Event event, String fxmlFile) {
         var dashboardParent = FXMLUtil.loadFxml(fxmlFile);
@@ -25,5 +36,10 @@ public class Controller {
         window.show();
     }
 
+    public void loadTemplates(){
+
+
+        userRepository.createUser("eyass", "Eyass!", 20);
+    }
 
 }

@@ -10,11 +10,13 @@ public class User {
     private String username;
     private String displayName;
     private Integer age;
+    private Plan adheredToPlan;
 
     public User(String username, String displayName, Integer age){
         this.username = username;
         this.displayName = displayName;
         this.age = age;
+        this.adheredToPlan = adheredToPlan;
     }
 
     public String getUsername() {
@@ -29,6 +31,10 @@ public class User {
         return displayName;
     }
 
+    public Plan getAdheredToPlan() {
+        return adheredToPlan;
+    }
+
     public void setAge(Integer age) {
         this.age = age;
     }
@@ -39,5 +45,9 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setAdheredToPlan(Plan adheredToPlan) {
+        this.adheredToPlan = adheredToPlan;
     }
 }
