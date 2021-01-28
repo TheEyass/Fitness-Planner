@@ -19,6 +19,7 @@ import util.FXMLUtil;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class Controller {
 
@@ -35,11 +36,4 @@ public class Controller {
         window.centerOnScreen();
         window.show();
     }
-
-    public void loadTemplates(){
-
-
-        userRepository.createUser("eyass", "Eyass!", 20);
-    }
-
 }
