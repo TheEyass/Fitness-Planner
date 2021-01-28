@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import model.Muscle;
+import model.Plan;
 import model.User;
 import model.Workout;
 import repos.Repositories;
@@ -124,8 +125,14 @@ public class FirstTimeLoginController extends Controller {
 
 
         final var SL = planRepository.createPlan(UUID.randomUUID(), "StrongLifts 5x5", "Beginner", "Strength", "Three months minimum", "Barbell");
-        SL.addWorkout(BarbellRow);
+        int bruh = SL.getAllWorkouts().size();
+        planRepository.getPlanByName("StrongLifts 5x5").ifPresent(plan -> plan.addWorkout(BarbellRow));
+        System.out.println(SL.getAllWorkouts().get(bruh-1).getMusclesworked());
         SL.addWorkout(OHP);
+        bruh = SL.getAllWorkouts().size();
+        System.out.println(bruh);
+        System.out.println(SL.getAllWorkouts().get(bruh-1).getMusclesworked());
+        SL.setDescription("Bruh!");
         userRepository.createUser("eyass", "Eyass", 20);
     }
 }

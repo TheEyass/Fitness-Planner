@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Workout {
 
-    private String name;
-    private Integer reps;
-    private Integer sets;
-    private Double weight;
-    private String notes;
-    private ArrayList<Muscle> musclesworked = new ArrayList<>();
+    public String name;
+    public Integer reps;
+    public Integer sets;
+    public Double weight;
+    public String notes;
+    public ArrayList<Muscle> musclesworked;
 
     public Workout(String name){
         this.name = name;
@@ -17,7 +17,7 @@ public class Workout {
         this.sets = sets;
         this.weight = weight;
         this.notes = notes;
-        this.musclesworked = musclesworked;
+        this.musclesworked = new ArrayList<>();
     }
 
     public void addMuscle(Muscle muscle){

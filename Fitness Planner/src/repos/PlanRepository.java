@@ -25,7 +25,11 @@ public class PlanRepository {
     }
 
     public Optional<Plan> getPlan(UUID id) {
-        return plans.stream().filter(plan -> plan.getPlanName().equals(id)).findAny();
+        return plans.stream().filter(plan -> plan.getPlanId().equals(id)).findAny();
+    }
+
+    public Optional<Plan> getPlanByName(String name) {
+        return plans.stream().filter(plan -> plan.getPlanName().contains(name)).findAny();
     }
 
     public boolean deletePlan(String name) {

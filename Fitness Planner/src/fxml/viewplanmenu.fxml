@@ -22,7 +22,7 @@
       <Accordion layoutX="25.0" layoutY="146.0" />
       <Group layoutX="11.0" layoutY="510.0">
          <children>
-            <Rectangle fx:id="backButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
+            <Rectangle fx:id="backButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" onMouseClicked="#onBackButton" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
             <Text fx:id="backText" layoutX="29.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
                <font>
                   <Font name="Calibri Light" size="15.0" />
@@ -30,7 +30,7 @@
             </Text>
          </children>
       </Group>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="46.0" layoutX="10.0" layoutY="14.0" opacity="0.53" stroke="#ededed" strokeType="INSIDE" strokeWidth="6.0" width="210.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="46.0" layoutX="10.0" layoutY="14.0" opacity="0.86" stroke="#ededed" strokeType="INSIDE" strokeWidth="6.0" width="210.0" />
       <Text fx:id="planName" layoutX="50.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plan Name Goes Here" />
       <TableView fx:id="workoutTable" layoutX="10.0" layoutY="75.0" prefHeight="407.0" prefWidth="662.0">
         <columns>
@@ -39,12 +39,6 @@
             <TableColumn fx:id="setColumn" prefWidth="40.79998779296875" text="Sets" />
             <TableColumn fx:id="noteColumn" prefWidth="342.4000305175781" text="Notes" />
         </columns>
-      </TableView>
-      <TableView fx:id="musclesWorkedTable" layoutX="682.0" layoutY="75.0" prefHeight="407.0" prefWidth="210.0">
-         <columns>
-            <TableColumn fx:id="muscleColumn" prefWidth="100.79998779296875" text="Muscle Name" />
-            <TableColumn fx:id="timesWorkedColumn" prefWidth="120.800048828125" text="# of times worked" />
-         </columns>
       </TableView>
       <Group layoutX="799.0" layoutY="510.0">
          <children>
@@ -66,5 +60,13 @@
             </Text>
          </children>
       </Group>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="681.0" layoutY="75.0" opacity="0.86" stroke="#ededed" strokeType="INSIDE" strokeWidth="6.0" width="210.0" />
+      <Text fx:id="descText" layoutX="695.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programme Description Goes here." wrappingWidth="181.2692413330078" />
+      <TableView fx:id="muscleWorkedTable" layoutX="680.0" layoutY="183.0" prefHeight="299.0" prefWidth="210.0">
+        <columns>
+          <TableColumn fx:id="musclesWorked" prefWidth="104.80010986328125" text="Muscle Name" />
+          <TableColumn fx:id="muscleLocation" minWidth="0.0" prefWidth="103.9999755859375" text="Muscle Location" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

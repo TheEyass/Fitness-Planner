@@ -7,13 +7,14 @@ import java.util.*;
 
 public class Plan {
 
-    private UUID id;
-    private String planName;
-    private String planSkillLevel;
-    private String focus;
-    private String length;
-    private String toolsRequired;
-    private ArrayList<Workout> workouts;
+    public UUID id;
+    public String planName;
+    public String planSkillLevel;
+    public String focus;
+    public String length;
+    public String toolsRequired;
+    public String description;
+    public ArrayList<Workout> workouts;
 
 
     public Plan(String planName, String planSkillLevel, String focus, String length, String toolsRequired){
@@ -27,13 +28,14 @@ public class Plan {
     }
 
     public Plan(UUID id, String planName, String planSkillLevel, String focus, String length, String toolsRequired){
-        this.id = UUID.randomUUID();
+        this.id = id;
         this.planName = planName;
         this.planSkillLevel = planSkillLevel;
         this.focus = focus;
         this.length = length;
         this.toolsRequired = toolsRequired;
         this.workouts = new ArrayList<>();
+        this.description = description;
     }
 
     public void addWorkout(Workout workout){
@@ -50,7 +52,7 @@ public class Plan {
 
     public ArrayList<Workout> getAllWorkouts(){
         if (workouts.isEmpty()){
-            Workout workout = new Workout("Workout");
+            Workout workout = new Workout("There are no workouts!");
             workouts.add(workout);
         }
 
@@ -71,12 +73,20 @@ public class Plan {
         return planName;
     }
 
+    public UUID getPlanId(){
+        return id;
+    }
+
     public String getPlanSkillLevel() {
         return planSkillLevel;
     }
 
     public String getToolsRequired() {
         return toolsRequired;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setFocus(String focus) {
@@ -98,4 +108,9 @@ public class Plan {
     public void setToolsRequired(String toolsRequired) {
         this.toolsRequired = toolsRequired;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }

@@ -2,8 +2,8 @@ package model;
 
 public class Muscle {
 
-    private String muscleName;
-    private String muscleArea;
+    public String muscleName;
+    public String muscleArea;
 
     public Muscle(String muscleName, String muscleArea){
         this.muscleName = muscleName;

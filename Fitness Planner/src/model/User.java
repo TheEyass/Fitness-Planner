@@ -7,10 +7,10 @@ import java.util.UUID;
 
 public class User {
 
-    private String username;
-    private String displayName;
-    private Integer age;
-    private Plan adheredToPlan;
+    public String username;
+    public String displayName;
+    public Integer age;
+    public Plan adheredToPlan;
 
     public User(String username, String displayName, Integer age){
         this.username = username;
