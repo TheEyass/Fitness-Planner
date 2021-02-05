@@ -50,6 +50,10 @@ public class Plan {
         return workouts;
     }
 
+    public Optional<Workout> getWorkoutByName(String name){
+        return workouts.stream().filter(workout -> workout.getName().equals(name)).findAny();
+    }
+
     public ArrayList<Workout> getAllWorkouts(){
         if (workouts.isEmpty()){
             Workout workout = new Workout("There are no workouts!");
@@ -87,6 +91,20 @@ public class Plan {
 
     public String getDescription() {
         return description;
+    }
+
+
+    public ArrayList<Muscle> getMusclesWorked(){
+        return workouts.get(workouts.size()-1).getMusclesworked();
+    }
+
+    public ArrayList<Muscle> getAllMuscles(){
+        ArrayList<Muscle> muscles = new ArrayList<>();
+        for (int i = 0; i < workouts.size(); i++) {
+            Workout workout = workouts.get(i);
+            muscles.addAll(workout.getMusclesworked());
+        }
+        return muscles;
     }
 
     public void setFocus(String focus) {
