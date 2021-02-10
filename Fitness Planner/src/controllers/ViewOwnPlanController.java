@@ -62,16 +62,11 @@ public class ViewOwnPlanController extends Controller {
 
 
 
-        Plan p = new Plan("rer", "rer", "rer", "rer", "rer");
-        final var activeSession =sessionManager.getActiveSession();
+        final var activeSession = sessionManager.getActiveSession();
 
         String username = activeSession.get().getUserUsername();
 
-        System.out.println(username);
-
         User u = userRepository.getUser(username).get();
-
-        u.setAdheredToPlan(planRepository.getPlanByName("StrongLifts 5x5").get());
 
         this.plan = u.getAdheredToPlan();
 
