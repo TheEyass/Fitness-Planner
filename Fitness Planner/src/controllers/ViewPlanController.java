@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -18,7 +19,9 @@ import repos.Repositories;
 import repos.SelectedPlan;
 import model.Workout;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.UUID;
 
 public class ViewPlanController extends Controller{
@@ -27,6 +30,9 @@ public class ViewPlanController extends Controller{
     PlanRepository planRepository = Repositories.getPlanRepository();
 
     private Plan plan;
+
+    @FXML
+    private Text backText;
 
     @FXML
     private Text planName;
@@ -57,9 +63,6 @@ public class ViewPlanController extends Controller{
 
     @FXML
     private Text descText;
-
-    @FXML
-    private Rectangle backButton;
 
     public void initialize(){
         planRepository.getAllPlans();
@@ -124,13 +127,24 @@ public class ViewPlanController extends Controller{
             descText.setText(plan.getDescription());
         }
 
-        final var workouts = plan.getAllWorkouts();
 
-        int size = plan.getAllWorkouts().size();
-        int musclesSize = plan.getAllWorkouts().get(size-1).getMusclesworked().size();
+        ArrayList<Workout> noRepeatedWorkouts = new ArrayList<>();
 
+        for (Workout workout : plan.getAllWorkouts()){
+            if (!noRepeatedWorkouts.contains(workout)){
+                noRepeatedWorkouts.add(workout);
+            }
+        }
 
-        muscleWorkedTable.setItems(FXCollections.observableArrayList(plan.getWorkouts().get(size-1).getMusclesworked()));
+        ArrayList<Muscle> noRepeatedMuscles = new ArrayList<>();
+
+        for (Muscle m : plan.getAllMuscles()){
+            if (!noRepeatedMuscles.contains(m)){
+                noRepeatedMuscles.add(m);
+            }
+        }
+
+        muscleWorkedTable.setItems(FXCollections.observableArrayList(noRepeatedMuscles));
         musclesWorked.setCellValueFactory(new PropertyValueFactory<String, Muscle>("muscleName"));
         muscleLocation.setCellValueFactory(new PropertyValueFactory<String, Muscle>("muscleArea"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<String, Workout>("name"));
@@ -138,7 +152,7 @@ public class ViewPlanController extends Controller{
         repColumn.setCellValueFactory(new PropertyValueFactory<Integer, Workout>("reps"));
         setColumn.setCellValueFactory(new PropertyValueFactory<Integer, Workout>("sets"));
 
-        workoutTable.setItems(FXCollections.observableArrayList(plan.getAllWorkouts()));
+        workoutTable.setItems(FXCollections.observableArrayList(noRepeatedWorkouts));
     }
 
     @FXML

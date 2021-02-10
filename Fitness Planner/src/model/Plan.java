@@ -54,13 +54,14 @@ public class Plan {
         return workouts.stream().filter(workout -> workout.getName().equals(name)).findAny();
     }
 
-    public ArrayList<Workout> getAllWorkouts(){
-        if (workouts.isEmpty()){
+    public ArrayList<Workout> getAllWorkouts() {
+        if (workouts.isEmpty()) {
             Workout workout = new Workout("There are no workouts!");
             workouts.add(workout);
+            return workouts;
+        } else {
+            return workouts;
         }
-
-        return workouts;
     }
 
     public UUID getId(){return id;}
@@ -93,10 +94,6 @@ public class Plan {
         return description;
     }
 
-
-    public ArrayList<Muscle> getMusclesWorked(){
-        return workouts.get(workouts.size()-1).getMusclesworked();
-    }
 
     public ArrayList<Muscle> getAllMuscles(){
         ArrayList<Muscle> muscles = new ArrayList<>();

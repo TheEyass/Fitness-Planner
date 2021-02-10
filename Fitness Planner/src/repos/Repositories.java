@@ -7,6 +7,7 @@ public class Repositories {
     private static WorkoutRepository WORKOUT_REPOSITORY = new WorkoutRepository();
     private static SelectedPlan SELECTED_PLAN = new SelectedPlan();
     private static SelectedWorkout SELECTED_WORKOUT = new SelectedWorkout();
+    private static MuscleRepository MUSCLE_REPOSITORY = new MuscleRepository();
 
     private Repositories(){}
 
@@ -19,4 +20,7 @@ public class Repositories {
     public static SelectedPlan getSelectedPlan(){ return SELECTED_PLAN; }
 
     public static SelectedWorkout getSelectedWorkout(){ return SELECTED_WORKOUT; }
+
+    public static MuscleRepository getMuscleRepository(){ return MUSCLE_REPOSITORY; }
 }
+

@@ -25,4 +25,9 @@ public class Muscle {
     public void setMuscleName(String muscleName) {
         this.muscleName = muscleName;
     }
+
+    @Override
+    public String toString() {
+        return muscleName + ": " +muscleArea + "\n";
+    }
 }

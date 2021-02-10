@@ -9,6 +9,7 @@ import model.Muscle;
 import model.Plan;
 import model.User;
 import model.Workout;
+import repos.MuscleRepository;
 import repos.Repositories;
 import repos.UserRepository;
 
@@ -17,6 +18,7 @@ import java.util.UUID;
 public class FirstTimeLoginController extends Controller {
 
     UserRepository userRepository = Repositories.getUserRepository();
+    MuscleRepository muscleRepository = Repositories.getMuscleRepository();
 
     @FXML
     private TextField usernameField;
@@ -50,89 +52,62 @@ public class FirstTimeLoginController extends Controller {
     }
 
     public void initialize() {
-        Muscle AbsPrimary = new Muscle("Abs: Primary", "Abs");
-        Muscle AbsSecondary = new Muscle("Abs: Secondary", "Abs");
-        Muscle AdductorPrimary = new Muscle("Adductor: Primary", "Hips");
-        Muscle AdductorSecondary = new Muscle("Adductor: Secondary", "Hips");
-        Muscle AnteriorDeltPrimary = new Muscle("Anterior Delt: Primary", "Shoulders");
-        Muscle AnteriorDeltSecondary = new Muscle("Anterior Delt: Secondary", "Shoulders");
-        Muscle BicepPrimary = new Muscle("Bicep: Primary", "Arms");
-        Muscle BicepSecondary = new Muscle("Bicep: Secondary", "Arms");
-        Muscle CalvesPrimary = new Muscle("Calves: Primary", "Legs");
-        Muscle CalvesSecondary = new Muscle("Calves: Secondary", "Legs");
-        Muscle FlexorPrimary = new Muscle("Flexor: Primary", "Hips");
-        Muscle FlexorSecondary = new Muscle("Flexor: Secondary", "Hips");
-        Muscle ForearmsPrimary = new Muscle("Forearms: Primary", "Arms");
-        Muscle ForearmsSecondary = new Muscle("Forearms: Secondary", "Arms");
-        Muscle GlutesPrimary = new Muscle("Glutes: Primary", "Legs");
-        Muscle GlutesSecondary = new Muscle("Glutes: Secondary", "Legs");
-        Muscle GluteusMediusPrimary = new Muscle("Gluteus Medius: Primary", "Legs");
-        Muscle GluteusMediusSecondary = new Muscle("Gluteus Medius: Secondary", "Legs");
-        Muscle HamstringPrimary = new Muscle("Hamstrings: Primary", "Legs");
-        Muscle HamstringSecondary = new Muscle("Hamstrings: Secondary", "Legs");
-        Muscle InfraspinatusPrimary = new Muscle("Infraspinatus: Primary", "Back");
-        Muscle InfraspinatusSecondary = new Muscle("Infraspinatus: Secondary", "Back");
-        Muscle ShoulderLatsPrimary = new Muscle("Lats: Primary", "Back");
-        Muscle ShoulderLatsSecondary = new Muscle("Lats: Secondary", "Back");
-        Muscle LateralsPrimary = new Muscle("Laterals: Primary", "Shoulder");
-        Muscle LateralsSecondary = new Muscle("Laterals: Secondary", "Shoulder");
-        Muscle ErectorSpinaePrimary = new Muscle("Erector Spinae: Primary", "Back");
-        Muscle ErectorSpinaeSecondary = new Muscle("Erector Spinae: Secondary", "Back");
-        Muscle ObliquesPrimary = new Muscle("Obliques: Primary", "Abs");
-        Muscle ObliquesSecondary = new Muscle("Obliques: Secondary", "Abs");
-        Muscle PecsPrimary = new Muscle("Pectorals: Primary", "Chest");
-        Muscle PecsSecondary = new Muscle("Pectorals: Secondary", "Chest");
-        Muscle PosteriorDeltsPrimary = new Muscle("Posterior Delts: Primary", "Shoulders");
-        Muscle PosteriorDeltsSecondary = new Muscle("Posterior Delts: Secondary", "Shoulders");
-        Muscle QuadsPrimary = new Muscle("Quads: Primary", "Legs");
-        Muscle QuadsSecondary = new Muscle("Quads: Secondary", "Legs");
-        Muscle SartoriusPrimary = new Muscle("Sartorius: Primary", "Hips");
-        Muscle SartoriusSecondary = new Muscle("Sartorius: Secondary", "Hips");
-        Muscle SerratusPrimary = new Muscle("Serratus: Primary", "Abs");
-        Muscle SerratusSecondary = new Muscle("Serratus: Secondary", "Abs");
-        Muscle TensorPrimary = new Muscle("Tensor: Primary", "Hips");
-        Muscle TensorSecondary = new Muscle("Tensor: Secondary", "Hips");
-        Muscle TeresPrimary = new Muscle("Teres: Primary", "Back");
-        Muscle TeresSecondary = new Muscle("Teres; Secondary", "Back");
-        Muscle TibialisPrimary = new Muscle("Tibialis: Primary", "Leg");
-        Muscle TibialisSecondary = new Muscle("Tibialis: Secondary", "Leg");
-        Muscle TricepPrimary = new Muscle("Tricep: Primary", "Arms");
-        Muscle TricepSecondary = new Muscle("Tricep: Secondary", "Arms");
+        final var SL = planRepository.createPlan(UUID.randomUUID(), "StrongLifts 5x5", "Beginner", "Strength", "Three months minimum", "Barbell");
+
+        muscleRepository.createMuscle("Abs", "Abs");
+        muscleRepository.createMuscle("Adductor", "Hips");
+        muscleRepository.createMuscle("Anterior Delt", "Shoulders");
+        muscleRepository.createMuscle("Bicep", "Arms");
+        muscleRepository.createMuscle("Calves" , "Legs");
+        muscleRepository.createMuscle("Flexor", "Hips");
+        muscleRepository.createMuscle("Forearms", "Arms");
+        muscleRepository.createMuscle("Glutes", "Legs");
+        muscleRepository.createMuscle("Hamstrings", "Legs");
+        muscleRepository.createMuscle("Infraspinatus", "Back");
+        muscleRepository.createMuscle("Lats", "Back");
+        muscleRepository.createMuscle("Laterals", "Shoulder");
+        muscleRepository.createMuscle("Erector Spinae", "Back");
+        muscleRepository.createMuscle("Obliques" , "Abs");
+        muscleRepository.createMuscle("Pectorals", "Chest");
+        muscleRepository.createMuscle("Posterior Delts", "Shoulders");
+        muscleRepository.createMuscle("Quads", "Legs");
+        muscleRepository.createMuscle("Sartorius", "Hips");
+        muscleRepository.createMuscle("Serratus", "Abs");
+        muscleRepository.createMuscle("Tensor", "Hips");
+        muscleRepository.createMuscle("Teres", "Back");
+        muscleRepository.createMuscle("Tibialis", "Leg");
+        muscleRepository.createMuscle("Tricep", "Arms");
 
 
-        Workout BenchPress = new Workout("Bench Press");
-        BenchPress.addMuscle(PecsPrimary);
-        BenchPress.addMuscle(TricepSecondary);
-        BenchPress.addMuscle(AnteriorDeltSecondary);
+        planRepository.getPlan(SL.getId()).get().addWorkout(workoutRepository.createWorkout("Bench Press"));
+        workoutRepository.getWorkout("Bench Press").get().addMuscle(muscleRepository.getMuscle("Pectorals").get());
+        workoutRepository.getWorkout("Bench Press").get().addMuscle(muscleRepository.getMuscle("Tricep").get());
+        workoutRepository.getWorkout("Bench Press").get().addMuscle(muscleRepository.getMuscle("Anterior Delt").get());
 
 
         Workout Squat = new Workout("Squat");
-        Squat.addMuscle(QuadsPrimary);
-        Squat.addMuscle(HamstringPrimary);
-        Squat.addMuscle(AdductorSecondary);
-        Squat.addMuscle(GlutesSecondary);
+        Squat.addMuscle(muscleRepository.getMuscle("Quads").get());
+        Squat.addMuscle(muscleRepository.getMuscle("Hamstrings").get());
+        Squat.addMuscle(muscleRepository.getMuscle("Adductor").get());
+        Squat.addMuscle(muscleRepository.getMuscle("Glutes").get());
 
         Workout OHP = new Workout("Overhead Press");
-        OHP.addMuscle(PecsSecondary);
-        OHP.addMuscle(AnteriorDeltPrimary);
-        OHP.addMuscle(ShoulderLatsSecondary);
-        OHP.addMuscle(TricepSecondary);
-        OHP.addMuscle(SerratusSecondary);
+        OHP.addMuscle(muscleRepository.getMuscle("Pectorals").get());
+        OHP.addMuscle(muscleRepository.getMuscle("Anterior Delt").get());
+        OHP.addMuscle(muscleRepository.getMuscle("Laterals").get());
+        OHP.addMuscle(muscleRepository.getMuscle("Tricep").get());
+        OHP.addMuscle(muscleRepository.getMuscle("Serratus").get());
 
         Workout BarbellRow = new Workout("Barbell Row");
-        BarbellRow.addMuscle(TeresPrimary);
-        BarbellRow.addMuscle(LateralsPrimary);
+        BarbellRow.addMuscle(muscleRepository.getMuscle("Teres").get());
+        BarbellRow.addMuscle(muscleRepository.getMuscle("Lats").get());
 
 
-        final var SL = planRepository.createPlan(UUID.randomUUID(), "StrongLifts 5x5", "Beginner", "Strength", "Three months minimum", "Barbell");
-        int bruh = SL.getAllWorkouts().size();
         planRepository.getPlanByName("StrongLifts 5x5").ifPresent(plan -> plan.addWorkout(BarbellRow));
-        System.out.println(SL.getAllWorkouts().get(bruh-1).getMusclesworked());
-        SL.addWorkout(OHP);
-        bruh = SL.getAllWorkouts().size();
-        System.out.println(bruh);
-        System.out.println(SL.getAllWorkouts().get(bruh-1).getMusclesworked());
+        planRepository.getPlan(SL.getId()).ifPresent(plan -> plan.addWorkout(OHP));
+        planRepository.getPlan(SL.getId()).ifPresent(plan -> plan.addWorkout(workoutRepository.getWorkout("Bench Press").get()));
         SL.setDescription("Bruh!");
+
         userRepository.createUser("eyass", "Eyass", 20);
     }
 }
