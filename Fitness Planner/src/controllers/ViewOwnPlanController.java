@@ -57,6 +57,8 @@ public class ViewOwnPlanController extends Controller {
     @FXML
     private TableColumn<String, Muscle> muscleLocation;
 
+    @FXML
+    private TableColumn<Double, Workout> weightColumn;
 
     public void initialize() {
 
@@ -98,6 +100,8 @@ public class ViewOwnPlanController extends Controller {
         noteColumn.setCellValueFactory(new PropertyValueFactory<String, Workout>("notes"));
         repColumn.setCellValueFactory(new PropertyValueFactory<Integer, Workout>("reps"));
         setColumn.setCellValueFactory(new PropertyValueFactory<Integer, Workout>("sets"));
+        weightColumn.setCellValueFactory(new PropertyValueFactory<Double, Workout>("weight"));
+        weightColumn.isEditable();
 
         workoutTable.setItems(FXCollections.observableArrayList(noRepeatedWorkouts));
     }

@@ -50,7 +50,7 @@ public class FirstTimeLoginController extends Controller {
         sessionManager.setActiveSession(usernameText);
 
 
-        Plan p = new Plan("No plan selected!", "rer", "rer", "rer", "rer");
+        Plan p = new Plan("No plan selected!", "x", "x", "x", "x");
         Workout w = new Workout("Please create or use a plan!");
         p.addWorkout(w);
 
@@ -68,7 +68,6 @@ public class FirstTimeLoginController extends Controller {
 
     public void initialize() {
         loadTemplates();
-
 
         userRepository.createUser("eyass", "Eyass", 20);
     }

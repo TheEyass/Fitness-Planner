@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ViewOwnPlanController">
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreatePlanController">
    <children>
       <ImageView fitHeight="569.0" fitWidth="978.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,7 +24,7 @@
       <Group layoutX="11.0" layoutY="510.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
-            <Text fx:id="backText" layoutX="29.0" layoutY="18.0" onMouseClicked="#onBackButton" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+            <Text fx:id="backText" layoutX="29.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
                <font>
                   <Font name="Calibri Light" size="15.0" />
                </font>
@@ -31,31 +32,45 @@
          </children>
       </Group>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="46.0" layoutX="10.0" layoutY="14.0" opacity="0.86" stroke="#ededed" strokeType="INSIDE" strokeWidth="6.0" width="210.0" />
-      <Text fx:id="planName" layoutX="57.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plan Name Goes Here" />
       <TableView fx:id="workoutTable" layoutX="10.0" layoutY="75.0" prefHeight="426.0" prefWidth="662.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="232.79998779296875" text="Workout Name" />
           <TableColumn fx:id="repColumn" minWidth="0.0" prefWidth="44.800048828125" text="Reps" />
-            <TableColumn fx:id="setColumn" prefWidth="40.79998779296875" text="Sets" />
-            <TableColumn fx:id="weightColumn" prefWidth="111.20001220703125" text="Maximum Weight" />
-            <TableColumn fx:id="noteColumn" prefWidth="232.800048828125" text="Notes" />
+            <TableColumn fx:id="setColumn" minWidth="0.0" prefWidth="45.60003662109375" text="Sets" />
+            <TableColumn fx:id="noteColumn" prefWidth="336.8000244140625" text="Notes" />
         </columns>
       </TableView>
       <Group layoutX="799.0" layoutY="510.0" />
       <Group layoutX="682.0" layoutY="510.0" />
-      <TableView fx:id="muscleWorkedTable" layoutX="681.0" layoutY="74.0" prefHeight="426.0" prefWidth="210.0">
+      <TableView fx:id="workoutsTable" layoutX="681.0" layoutY="74.0" prefHeight="262.0" prefWidth="210.0">
          <columns>
-            <TableColumn fx:id="musclesWorked" minWidth="0.0" prefWidth="137.5999755859375" text="Muscle name" />
-            <TableColumn fx:id="muscleLocation" maxWidth="163.9999755859375" minWidth="-1.0" prefWidth="72.0" text="Area" />
+            <TableColumn fx:id="workouts" minWidth="0.0" prefWidth="209.60001220703126" text="Workout Name" />
          </columns>
       </TableView>
       <Group layoutX="547.0" layoutY="510.0" />
       <Text layoutX="702.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="627.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="45.0" />
-      <Text layoutX="637.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
+      <Rectangle fx:id="editButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="846.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="45.0" />
+      <Text fx:id="nextButton" layoutX="854.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create" onMouseClicked="#createPlan">
          <font>
             <Font name="Calibri Light" size="15.0" />
          </font>
       </Text>
+      <TextField fx:id="planNameField" layoutX="20.0" layoutY="25.0" prefHeight="26.0" prefWidth="190.0" promptText="Name your plan!" />
+      <Group layoutX="804.0" layoutY="347.0" />
+      <Group layoutX="743.0" layoutY="346.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="-7.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="101.0" />
+            <Text fx:id="addWorkout" layoutX="3.0" layoutY="18.0" onMouseClicked="#onWorkoutAdded" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Workout">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <TableView fx:id="noTrainedMuscles" layoutX="681.0" layoutY="386.0" prefHeight="114.0" prefWidth="210.0">
+         <columns>
+            <TableColumn fx:id="noTrainedMusclesColumn" minWidth="0.0" prefWidth="209.60001220703126" text="You haven't trained these muscles!" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

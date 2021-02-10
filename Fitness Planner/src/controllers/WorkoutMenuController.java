@@ -80,12 +80,6 @@ public class WorkoutMenuController extends Controller {
         focusColumn.setCellValueFactory(new PropertyValueFactory<String, Plan>("focus"));
         lengthColumn.setCellValueFactory(new PropertyValueFactory<String, Plan>("length"));
         toolsColumn.setCellValueFactory(new PropertyValueFactory<String, Plan>("toolsRequired"));
-
-        planTableView.setEditable(true);
-
-        planRepository.getPlanByName("StrongLifts 5x5").get().getAllWorkouts().get(1).getMusclesworked();
-        planRepository.getPlanByName("StrongLifts 5x5").ifPresent(plan -> System.out.println(plan.getAllWorkouts().get(1).getMusclesworked()));
-
     }
 
     public void setWorkout(){
@@ -117,7 +111,7 @@ public class WorkoutMenuController extends Controller {
 
     @FXML
     public void onCreateButton(MouseEvent event){
-        //redirect();
+        redirect(event, "createplanmenu");
     }
 
     @FXML

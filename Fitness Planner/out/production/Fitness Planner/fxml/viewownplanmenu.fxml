@@ -37,7 +37,8 @@
           <TableColumn fx:id="nameColumn" prefWidth="232.79998779296875" text="Workout Name" />
           <TableColumn fx:id="repColumn" minWidth="0.0" prefWidth="44.800048828125" text="Reps" />
             <TableColumn fx:id="setColumn" prefWidth="40.79998779296875" text="Sets" />
-            <TableColumn fx:id="noteColumn" prefWidth="342.4000305175781" text="Notes" />
+            <TableColumn fx:id="weightColumn" prefWidth="111.20001220703125" text="Maximum Weight" />
+            <TableColumn fx:id="noteColumn" prefWidth="232.800048828125" text="Notes" />
         </columns>
       </TableView>
       <Group layoutX="799.0" layoutY="510.0" />
@@ -50,8 +51,8 @@
       </TableView>
       <Group layoutX="547.0" layoutY="510.0" />
       <Text layoutX="702.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Rectangle fx:id="editButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="627.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="45.0" />
-      <Text fx:id="editText" layoutX="637.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="627.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="45.0" />
+      <Text layoutX="637.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
          <font>
             <Font name="Calibri Light" size="15.0" />
          </font>

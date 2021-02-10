@@ -19,6 +19,11 @@ public class PlanRepository {
         return plan;
     }
 
+    public Plan addPlan(Plan plan){
+        plans.add(plan);
+        return plan;
+    }
+
 
     public Set<Plan> getAllPlans() {
         return Collections.unmodifiableSet(plans);
