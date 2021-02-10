@@ -14,10 +14,12 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import model.Muscle;
 import model.Plan;
+import model.User;
 import repos.PlanRepository;
 import repos.Repositories;
 import repos.SelectedPlan;
 import model.Workout;
+import session.SessionManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +30,7 @@ public class ViewPlanController extends Controller{
 
     SelectedPlan selectedPlan = Repositories.getSelectedPlan();
     PlanRepository planRepository = Repositories.getPlanRepository();
+    SessionManager sessionManager = SessionManager.getInstance();
 
     private Plan plan;
 
@@ -63,6 +66,9 @@ public class ViewPlanController extends Controller{
 
     @FXML
     private Text descText;
+
+    @FXML
+    private Text useText;
 
     public void initialize(){
         planRepository.getAllPlans();
@@ -158,6 +164,15 @@ public class ViewPlanController extends Controller{
     @FXML
     public void onBackButton(MouseEvent event){
         redirect(event, "workoutmenu");
+    }
+
+    @FXML
+    public void onUseButton(MouseEvent event){
+       String username = sessionManager.getActiveSession().get().getUserUsername();
+       User u = userRepository.getUser(username).get();
+
+       u.setAdheredToPlan(selectedPlan.getPlan().get());
+        System.out.println("Went well!");
     }
 
 }

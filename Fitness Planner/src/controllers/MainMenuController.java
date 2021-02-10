@@ -30,7 +30,7 @@ public class MainMenuController extends Controller{
 
     @FXML
     void onWorkoutsLedger(MouseEvent event){
-        redirect(event, "workoutmenu");
+        redirect(event, "viewownplanmenu");
     }
 
     @FXML

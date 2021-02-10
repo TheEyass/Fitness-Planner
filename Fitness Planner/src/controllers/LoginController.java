@@ -10,12 +10,14 @@ import model.User;
 import model.Workout;
 import repos.Repositories;
 import repos.UserRepository;
+import session.SessionManager;
 
 import java.util.UUID;
 
 public class LoginController extends Controller{
 
     UserRepository userRepository = Repositories.getUserRepository();
+    SessionManager sessionManager = SessionManager.getInstance();
 
     @FXML
     private TextField usernameField;
@@ -34,6 +36,8 @@ public class LoginController extends Controller{
     @FXML
     void onLogin(MouseEvent event){
         String usernameText = usernameField.getText();
+
+        sessionManager.setActiveSession(usernameText);
         if (userRepository.getUser(usernameText).isPresent()){
             redirect(event, "mainmenu");
         } else {

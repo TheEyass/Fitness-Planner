@@ -43,7 +43,7 @@
       <Group layoutX="799.0" layoutY="510.0">
          <children>
             <Rectangle fx:id="useButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
-            <Text fx:id="useText" layoutX="18.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use Plan">
+            <Text fx:id="useText" layoutX="18.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use Plan" onMouseClicked="#onUseButton">
                <font>
                   <Font name="Calibri Light" size="15.0" />
                </font>

@@ -63,7 +63,7 @@
       <Group layoutX="11.0" layoutY="525.0">
          <children>
             <Rectangle fx:id="backButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
-            <Text fx:id="backText" layoutX="29.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+            <Text fx:id="backText" layoutX="29.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back" onMouseClicked="#onBackButton">
                <font>
                   <Font name="Calibri Light" size="15.0" />
                </font>

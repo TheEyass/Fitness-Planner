@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ViewPlanController">
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ViewOwnPlanController">
    <children>
       <ImageView fitHeight="569.0" fitWidth="978.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -40,33 +40,21 @@
             <TableColumn fx:id="noteColumn" prefWidth="342.4000305175781" text="Notes" />
         </columns>
       </TableView>
-      <Group layoutX="799.0" layoutY="510.0">
-         <children>
-            <Rectangle fx:id="useButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
-            <Text fx:id="useText" layoutX="18.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use Plan" onMouseClicked="#onUseButton">
-               <font>
-                  <Font name="Calibri Light" size="15.0" />
-               </font>
-            </Text>
-         </children>
-      </Group>
-      <Group layoutX="682.0" layoutY="510.0">
-         <children>
-            <Rectangle fx:id="editButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="87.0" />
-            <Text fx:id="editText" layoutX="17.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Plan">
-               <font>
-                  <Font name="Calibri Light" size="15.0" />
-               </font>
-            </Text>
-         </children>
-      </Group>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="681.0" layoutY="75.0" opacity="0.86" stroke="#ededed" strokeType="INSIDE" strokeWidth="6.0" width="210.0" />
-      <Text fx:id="descText" layoutX="695.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programme Description Goes here." wrappingWidth="181.2692413330078" />
-      <TableView fx:id="muscleWorkedTable" layoutX="681.0" layoutY="184.0" prefHeight="316.0" prefWidth="210.0">
+      <Group layoutX="799.0" layoutY="510.0" />
+      <Group layoutX="682.0" layoutY="510.0" />
+      <TableView fx:id="muscleWorkedTable" layoutX="681.0" layoutY="74.0" prefHeight="426.0" prefWidth="210.0">
          <columns>
-            <TableColumn fx:id="musclesWorked" minWidth="0.0" prefWidth="137.5999755859375" text="Reps" />
-            <TableColumn fx:id="muscleLocation" maxWidth="163.9999755859375" minWidth="-1.0" prefWidth="72.0" text="Sets" />
+            <TableColumn fx:id="musclesWorked" minWidth="0.0" prefWidth="137.5999755859375" text="Muscle name" />
+            <TableColumn fx:id="muscleLocation" maxWidth="163.9999755859375" minWidth="-1.0" prefWidth="72.0" text="Area" />
          </columns>
       </TableView>
+      <Group layoutX="547.0" layoutY="510.0" />
+      <Text layoutX="702.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Rectangle fx:id="editButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="627.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="45.0" />
+      <Text fx:id="editText" layoutX="637.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
+         <font>
+            <Font name="Calibri Light" size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
