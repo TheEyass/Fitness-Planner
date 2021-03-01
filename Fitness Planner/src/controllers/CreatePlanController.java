@@ -6,8 +6,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.util.converter.IntegerStringConverter;
 import model.Muscle;
 import model.Plan;
 import model.Workout;
@@ -16,7 +18,6 @@ import repos.PlanRepository;
 import repos.Repositories;
 import repos.WorkoutRepository;
 
-import javax.swing.table.TableColumnModel;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -39,16 +40,16 @@ public class CreatePlanController extends Controller{
     private TableView workoutTable;
 
     @FXML
-    private TableColumn<String, Workout> nameColumn;
+    private TableColumn<Workout, String> nameColumn;
 
     @FXML
-    private TableColumn<Integer, Workout> repColumn;
+    private TableColumn<Workout, Integer> repColumn;
 
     @FXML
-    private TableColumn<Integer, Workout> setColumn;
+    private TableColumn<Workout, Integer> setColumn;
 
     @FXML
-    private TableColumn<String, Workout> noteColumn;
+    private TableColumn<Workout, String> noteColumn;
 
     @FXML
     private Text addWorkout;
@@ -81,23 +82,28 @@ public class CreatePlanController extends Controller{
         }
 
         workoutsTable.setItems(FXCollections.observableArrayList(noRepeatAddedWorkouts));
-
-        nameColumn.setCellValueFactory(new PropertyValueFactory<String, Workout>("name"));
-        noteColumn.setCellValueFactory(new PropertyValueFactory<String, Workout>("notes"));
-        repColumn.setCellValueFactory(new PropertyValueFactory<Integer, Workout>("reps"));
-        setColumn.setCellValueFactory(new PropertyValueFactory<Integer, Workout>("sets"));
+        workoutsTable.setEditable(true);
+        workoutTable.setEditable(true);
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Workout, String>("name"));
+        noteColumn.setCellValueFactory(new PropertyValueFactory<Workout, String>("notes"));
+        repColumn.setCellValueFactory(new PropertyValueFactory<Workout, Integer>("reps"));
+        setColumn.setCellValueFactory(new PropertyValueFactory<Workout, Integer>("sets"));
 
         workouts.setCellValueFactory(new PropertyValueFactory<String, Workout>("name"));
 
         noTrainedMuscles.setItems(FXCollections.observableArrayList(noMusclesWorked));
         noTrainedMusclesColumn.setCellValueFactory(new PropertyValueFactory<String, Muscle>("muscleName"));
 
+        noteColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        repColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        setColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
     }
 
     public void onWorkoutAdded(MouseEvent event){
         Workout w = workoutsTable.getSelectionModel().getSelectedItem();
-        workoutsAdded.add(w);
+        Workout work = new Workout(UUID.randomUUID(), w.getName());
+        workoutsAdded.add(work);
 
         musclesWorked.addAll(w.getMusclesworked());
 
@@ -131,17 +137,37 @@ public class CreatePlanController extends Controller{
         System.out.println(musclesWorked);
     }
 
+    public void changeSets(TableColumn.CellEditEvent editedCell){
+        Workout wS = (Workout) workoutTable.getSelectionModel().getSelectedItem();
+        wS.setSets(Integer.parseInt(editedCell.getNewValue().toString()));
+    }
+
+    public void changeReps(TableColumn.CellEditEvent editedCell){
+        Workout wS = (Workout) workoutTable.getSelectionModel().getSelectedItem();
+        wS.setReps(Integer.parseInt(editedCell.getNewValue().toString()));
+    }
+
+    public void changeNotes(TableColumn.CellEditEvent editedCell){
+        Workout wS = (Workout) workoutTable.getSelectionModel().getSelectedItem();
+        wS.setNotes(editedCell.getNewValue().toString());
+    }
+
+
     public void createPlan(MouseEvent event){
         Plan p = new Plan(planNameField.getText(), "", "", "", "");
-        if (workoutsAdded.size() > 0) {
-            for (int i = 0; i < workoutsAdded.size(); i++){
-                p.addWorkout(workoutsAdded.get(i));
-            }
-            planRepository.addPlan(p);
-            redirect(event, "workoutmenu");
+        if (!planNameField.getText().isEmpty()){
+            if (workoutsAdded.size() > 0) {
+                for (int i = 0; i < workoutsAdded.size(); i++) {
+                    p.addWorkout(workoutsAdded.get(i));
+                }
+                planRepository.addPlan(p);
+                redirect(event, "workoutmenu");
 
-        } else  {
-            System.out.println("Bruh!");
+            } else {
+                System.out.println("Bruh!");
+            }
+        } else {
+            planNameField.setPromptText("ENTER A NAME, JACKASS");
         }
     }
 }

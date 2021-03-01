@@ -35,9 +35,9 @@
       <TableView fx:id="workoutTable" layoutX="10.0" layoutY="75.0" prefHeight="426.0" prefWidth="662.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="232.79998779296875" text="Workout Name" />
-          <TableColumn fx:id="repColumn" minWidth="0.0" prefWidth="44.800048828125" text="Reps" />
-            <TableColumn fx:id="setColumn" minWidth="0.0" prefWidth="45.60003662109375" text="Sets" />
-            <TableColumn fx:id="noteColumn" prefWidth="336.8000244140625" text="Notes" />
+          <TableColumn fx:id="repColumn" minWidth="0.0" onEditCommit="#changeReps" prefWidth="44.800048828125" text="Reps" />
+            <TableColumn fx:id="setColumn" minWidth="0.0" onEditCommit="#changeSets" prefWidth="45.60003662109375" text="Sets" />
+            <TableColumn fx:id="noteColumn" onEditCommit="#changeNotes" prefWidth="336.8000244140625" text="Notes" />
         </columns>
       </TableView>
       <Group layoutX="799.0" layoutY="510.0" />
@@ -50,7 +50,7 @@
       <Group layoutX="547.0" layoutY="510.0" />
       <Text layoutX="702.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Rectangle fx:id="editButton" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="846.0" layoutY="510.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="45.0" />
-      <Text fx:id="nextButton" layoutX="854.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create" onMouseClicked="#createPlan">
+      <Text fx:id="nextButton" layoutX="854.0" layoutY="528.0" onMouseClicked="#createPlan" strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
          <font>
             <Font name="Calibri Light" size="15.0" />
          </font>

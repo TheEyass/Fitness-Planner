@@ -67,6 +67,8 @@ public class Controller {
         workoutRepository.getWorkout("Bench Press").get().addMuscle(muscleRepository.getMuscle("Pectorals").get());
         workoutRepository.getWorkout("Bench Press").get().addMuscle(muscleRepository.getMuscle("Tricep").get());
         workoutRepository.getWorkout("Bench Press").get().addMuscle(muscleRepository.getMuscle("Anterior Delt").get());
+        workoutRepository.getWorkout("Bench Press").get().setReps(5);
+        workoutRepository.getWorkout("Bench Press").get().setSets(5);
 
 
         workoutRepository.createWorkout("Squat");
@@ -74,6 +76,8 @@ public class Controller {
         workoutRepository.getWorkout("Squat").get().addMuscle(muscleRepository.getMuscle("Hamstrings").get());
         workoutRepository.getWorkout("Squat").get().addMuscle(muscleRepository.getMuscle("Adductor").get());
         workoutRepository.getWorkout("Squat").get().addMuscle(muscleRepository.getMuscle("Glutes").get());
+        workoutRepository.getWorkout("Squat").get().setReps(5);
+        workoutRepository.getWorkout("Squat").get().setSets(5);
 
         workoutRepository.createWorkout("Overhead Press");
         workoutRepository.getWorkout("Overhead Press").get().addMuscle(muscleRepository.getMuscle("Pectorals").get());
@@ -81,10 +85,16 @@ public class Controller {
         workoutRepository.getWorkout("Overhead Press").get().addMuscle(muscleRepository.getMuscle("Laterals").get());
         workoutRepository.getWorkout("Overhead Press").get().addMuscle(muscleRepository.getMuscle("Tricep").get());
         workoutRepository.getWorkout("Overhead Press").get().addMuscle(muscleRepository.getMuscle("Serratus").get());
+        workoutRepository.getWorkout("Overhead Press").get().setReps(5);
+        workoutRepository.getWorkout("Overhead Press").get().setSets(5);
+
 
         workoutRepository.createWorkout("Barbell Row");
         workoutRepository.getWorkout("Barbell Row").get().addMuscle(muscleRepository.getMuscle("Teres").get());
         workoutRepository.getWorkout("Barbell Row").get().addMuscle(muscleRepository.getMuscle("Lats").get());
+        workoutRepository.getWorkout("Barbell Row").get().setReps(5);
+        workoutRepository.getWorkout("Barbell Row").get().setSets(5);
+
 
         planRepository.getPlanByName("StrongLifts 5x5").ifPresent(plan -> plan.addWorkout(workoutRepository.getWorkout("Barbell Row").get()));
         planRepository.getPlan(SL.getId()).ifPresent(plan -> plan.addWorkout(workoutRepository.getWorkout("Overhead Press").get()));

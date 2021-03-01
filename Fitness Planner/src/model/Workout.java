@@ -1,17 +1,22 @@
 package model;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Workout {
 
+    public UUID id;
     public String name;
     public Integer reps;
     public Integer sets;
     public Double weight;
-    public String notes;
+    public SimpleStringProperty notes;
     public ArrayList<Muscle> musclesworked;
 
-    public Workout(String name){
+    public Workout(UUID id, String name){
+        id = UUID.randomUUID();
         this.name = name;
         this.reps = reps;
         this.sets = sets;
@@ -33,7 +38,7 @@ public class Workout {
     }
 
     public void setNotes(String notes) {
-        this.notes = notes;
+        this.notes = new SimpleStringProperty(notes);
     }
 
     public void setReps(Integer reps) {
@@ -46,6 +51,10 @@ public class Workout {
 
     public void setWeight(Double weight) {
         this.weight = weight;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public Integer getSets() {
@@ -68,7 +77,11 @@ public class Workout {
         return name;
     }
 
-    public String getNotes() {
+    public SimpleStringProperty getNotes() {
         return notes;
+    }
+
+    public UUID getId() {
+        return id;
     }
 }

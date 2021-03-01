@@ -15,7 +15,7 @@ public class WorkoutRepository {
     }
 
     public Workout createWorkout(String name) {
-        final var workout = new Workout(name);
+        final var workout = new Workout(UUID.randomUUID(), name);
         workoutsStorage.add(workout);
         return workout;
     }

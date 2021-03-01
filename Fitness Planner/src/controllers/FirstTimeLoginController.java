@@ -51,7 +51,7 @@ public class FirstTimeLoginController extends Controller {
 
 
         Plan p = new Plan("No plan selected!", "x", "x", "x", "x");
-        Workout w = new Workout("Please create or use a plan!");
+        Workout w = new Workout(UUID.randomUUID(),"Please create or use a plan!");
         p.addWorkout(w);
 
         User u = userRepository.getUser(sessionManager.getActiveSession().get().getUserUsername()).get();

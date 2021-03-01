@@ -56,7 +56,7 @@ public class Plan {
 
     public ArrayList<Workout> getAllWorkouts() {
         if (workouts.isEmpty()) {
-            Workout workout = new Workout("There are no workouts!");
+            Workout workout = new Workout(UUID.randomUUID(), "WOW!");
             workouts.add(workout);
             return workouts;
         } else {
