@@ -2,9 +2,9 @@ package controllers;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
@@ -21,7 +21,7 @@ import repos.WorkoutRepository;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class CreatePlanController extends Controller{
+public class EditOwnPlanController extends Controller{
 
     PlanRepository planRepository = Repositories.getPlanRepository();
     WorkoutRepository workoutRepository = Repositories.getWorkoutRepository();
@@ -59,9 +59,6 @@ public class CreatePlanController extends Controller{
 
     @FXML
     private TableColumn<String, Muscle> noTrainedMusclesColumn;
-
-    @FXML
-    private Text removeWorkout;
 
     ArrayList<Workout> workoutsAdded = new ArrayList<>();
     ArrayList<Workout> noRepeatAddedWorkouts = new ArrayList<>();
@@ -111,6 +108,14 @@ public class CreatePlanController extends Controller{
 
         musclesWorked.addAll(w.getMusclesworked());
 
+        noRepeatAddedWorkouts.clear();
+
+        for (Workout wo : workoutRepository.getAllWorkouts()){
+            if (!workoutsAdded.contains(wo)){
+                noRepeatAddedWorkouts.add(wo);
+            }
+        }
+
         currentWorkoutsTable.setItems(FXCollections.observableArrayList(workoutsAdded));
         workoutsTable.setItems(FXCollections.observableArrayList(noRepeatAddedWorkouts));
 
@@ -127,28 +132,10 @@ public class CreatePlanController extends Controller{
         noTrainedMuscles.refresh();
         workoutsTable.refresh();
         currentWorkoutsTable.refresh();
-    }
-
-    public void onWorkoutRemoved(MouseEvent event){
-        Workout w = (Workout) currentWorkoutsTable.getSelectionModel().getSelectedItem();
-        workoutsAdded.remove(w);
-
-        currentWorkoutsTable.setItems(FXCollections.observableArrayList(workoutsAdded));
-        workoutsTable.setItems(FXCollections.observableArrayList(noRepeatAddedWorkouts));
-
-        noMusclesWorked.clear();
-
-        for (Muscle m : muscleRepository.getAllMuscles()){
-            if (!musclesWorked.contains(m)){
-                noMusclesWorked.add(m);
-            }
-        }
-
-        noTrainedMuscles.setItems(FXCollections.observableArrayList(noMusclesWorked));
-
-        noTrainedMuscles.refresh();
-        workoutsTable.refresh();
-        currentWorkoutsTable.refresh();
+        System.out.println(workoutsAdded);
+        System.out.println(noMusclesWorked);
+        System.out.println(noRepeatAddedWorkouts);
+        System.out.println(musclesWorked);
     }
 
     public void changeSets(TableColumn.CellEditEvent editedCell){

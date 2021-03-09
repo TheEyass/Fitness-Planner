@@ -15,6 +15,13 @@ public class Plan {
     public String toolsRequired;
     public String description;
     public ArrayList<Workout> workouts;
+    public ArrayList<Workout> monday;
+    public ArrayList<Workout> tuesday;
+    public ArrayList<Workout> wednesday;
+    public ArrayList<Workout> thursday;
+    public ArrayList<Workout> friday;
+    public ArrayList<Workout> saturday;
+    public ArrayList<Workout> sunday;
 
 
     public Plan(String planName, String planSkillLevel, String focus, String length, String toolsRequired){
@@ -43,7 +50,7 @@ public class Plan {
     }
 
     public void removeWorkout(Workout workout){
-        workouts.remove(workout.getName());
+        workouts.remove(workout);
     }
 
     public ArrayList<Workout> getWorkouts() {

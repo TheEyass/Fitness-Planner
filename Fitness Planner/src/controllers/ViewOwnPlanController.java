@@ -74,8 +74,7 @@ public class ViewOwnPlanController extends Controller {
 
         planName.setText(plan.getPlanName());
 
-
-
+        workoutTable.setEditable(true);
 
         ArrayList<Workout> noRepeatedWorkouts = new ArrayList<>();
 

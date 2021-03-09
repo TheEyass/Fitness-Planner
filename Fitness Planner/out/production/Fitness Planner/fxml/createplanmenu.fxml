@@ -32,7 +32,7 @@
          </children>
       </Group>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="46.0" layoutX="10.0" layoutY="14.0" opacity="0.86" stroke="#ededed" strokeType="INSIDE" strokeWidth="6.0" width="210.0" />
-      <TableView fx:id="workoutTable" layoutX="10.0" layoutY="75.0" prefHeight="426.0" prefWidth="662.0">
+      <TableView fx:id="currentWorkoutsTable" layoutX="10.0" layoutY="75.0" prefHeight="426.0" prefWidth="662.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="232.79998779296875" text="Workout Name" />
           <TableColumn fx:id="repColumn" minWidth="0.0" onEditCommit="#changeReps" prefWidth="44.800048828125" text="Reps" />
@@ -72,5 +72,15 @@
             <TableColumn fx:id="noTrainedMusclesColumn" minWidth="0.0" prefWidth="209.60001220703126" text="You haven't trained these muscles!" />
          </columns>
       </TableView>
+      <Group layoutX="298.0" layoutY="511.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="-7.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="115.0" />
+            <Text fx:id="removeWorkout" layoutX="-2.0" layoutY="18.0" onMouseClicked="#onWorkoutRemoved" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove Workout">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
    </children>
 </AnchorPane>
